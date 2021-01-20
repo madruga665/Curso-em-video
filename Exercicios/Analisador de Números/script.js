@@ -5,12 +5,12 @@ let array = [];
 function addNum() {
   let num = Number(numero.value);
 
-  if (num > 100) {
+  if (num > 100 || num < 1) {
     num = "";
+    document.getElementById("txtn").value = "";
     window.alert(`Numero inválido`);
   } else {
     array.push(num);
-
     let item = document.createElement("option");
     item.text = ` Valor ${num} adicionado`;
     sel.appendChild(item);
@@ -29,15 +29,11 @@ function finalizar() {
     media = soma / array.length;
   }
 
-  let totalNum = document.getElementById("totalNum");
-  let resSoma = document.getElementById("soma");
-  let resMedia = document.getElementById("media");
-  let resMaior = document.getElementById("maior");
-  let resMenor = document.getElementById("menor");
+  let res = document.getElementById("res");
 
-  totalNum.innerHTML = `Ao todo, temos ${array.length} numeros cadastrados`;
-  resMaior.innerHTML = `O maior valor informado foi ${maior}`;
-  resMenor.innerHTML = `O menor valor informado foi ${menor}`;
-  resSoma.innerHTML = `Somando todos os valores temos ${soma}`;
-  resMedia.innerHTML = `A média dos valores digitados é ${media.toFixed(2)}`;
+  res.innerHTML += `<p>Ao todo, temos ${array.length} numeros cadastrados</p>`;
+  res.innerHTML += `<p>O maior valor informado foi ${maior}</p>`;
+  res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`;
+  res.innerHTML += `<p>Somando todos os valores temos ${soma}</p>`;
+  res.innerHTML += `<p>A média dos valores digitados é ${media.toFixed(2)}</>`;
 }
