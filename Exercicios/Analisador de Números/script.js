@@ -15,6 +15,7 @@ function addNum() {
     item.text = ` Valor ${num} adicionado`;
     sel.appendChild(item);
     document.getElementById("txtn").value = "";
+    document.getElementById("res").innerHTML = "";
   }
 }
 
@@ -31,9 +32,9 @@ function finalizar() {
 
   let res = document.getElementById("res");
 
-  res.innerHTML += `<p>Ao todo, temos ${array.length} numeros cadastrados</p>`;
-  res.innerHTML += `<p>O maior valor informado foi ${maior}</p>`;
-  res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`;
-  res.innerHTML += `<p>Somando todos os valores temos ${soma}</p>`;
-  res.innerHTML += `<p>A média dos valores digitados é ${media.toFixed(2)}</>`;
+  res.innerHTML += `<p>Ao todo, temos ${array.length} numeros cadastrados</p>
+  <p>O maior valor informado foi ${maior}</p>
+  <p>O menor valor informado foi ${menor}</p>
+  <p>Somando todos os valores temos ${soma}</p>
+  <p>A média dos valores digitados é ${media.toFixed(2)}</>`;
 }
