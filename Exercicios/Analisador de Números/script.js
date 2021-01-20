@@ -5,10 +5,13 @@ let array = [];
 function addNum() {
   let num = Number(numero.value);
 
-  if (num > 100 || num < 1) {
+  if (num > 100 || num < 1 ) {
     num = "";
     document.getElementById("txtn").value = "";
     window.alert(`Numero inválido`);
+  } else if (array.includes(num)) {
+    num = "";
+    window.alert(`Numero já adicionado`);
   } else {
     array.push(num);
     let item = document.createElement("option");
@@ -24,17 +27,15 @@ function finalizar() {
   let media = 0;
   let maior = Math.max.apply(null, array);
   let menor = Math.min.apply(null, array);
+  let res = document.getElementById("res");
   //Soma e Media
   for (let i = 0; i < array.length; i++) {
     soma += array[i];
     media = soma / array.length;
   }
-
-  let res = document.getElementById("res");
-
   res.innerHTML += `<p>Ao todo, temos ${array.length} numeros cadastrados</p>
   <p>O maior valor informado foi ${maior}</p>
   <p>O menor valor informado foi ${menor}</p>
   <p>Somando todos os valores temos ${soma}</p>
-  <p>A média dos valores digitados é ${media.toFixed(2)}</>`;
+  <p>A média dos valores digitados é ${media.toFixed(2)}</p>`;
 }
