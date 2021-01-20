@@ -27,7 +27,7 @@ function addNum() {
     item.text = ` Valor ${num} adicionado`;
     list.appendChild(item);
     numero.value = "";
-    document.getElementById("res").innerHTML = "";
+    res.innerHTML = "";
   }
 }
 
