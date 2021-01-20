@@ -1,6 +1,12 @@
 let numero = document.getElementById("txtn");
 let sel = document.getElementById("sel");
 let array = [];
+numero.addEventListener('keypress', function(e) {
+  var key = e.key
+  if (key === 'Enter') {
+    addNum()
+  }
+});
 
 function addNum() {
   let num = Number(numero.value);
@@ -11,6 +17,7 @@ function addNum() {
     window.alert(`Numero inválido`);
   } else if (array.includes(num)) {
     num = "";
+    document.getElementById("txtn").value = "";
     window.alert(`Numero já adicionado`);
   } else {
     array.push(num);
@@ -33,9 +40,9 @@ function finalizar() {
     soma += array[i];
     media = soma / array.length;
   }
-  res.innerHTML += `<p>Ao todo, temos ${array.length} numeros cadastrados</p>
+  res.innerHTML = `<p>Ao todo, temos ${array.length} numeros cadastrados</p>
   <p>O maior valor informado foi ${maior}</p>
   <p>O menor valor informado foi ${menor}</p>
   <p>Somando todos os valores temos ${soma}</p>
-  <p>A média dos valores digitados é ${media.toFixed(2)}</p>`;
+  <p>A média dos valores digitados é ${media.toFixed(1)}</p>`;
 }
